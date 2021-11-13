@@ -21,7 +21,7 @@ const jobGet = async (req, res = response ) => {
 
 const jobGetId = async (req, res) => {
     const {user} = req.params;
-    const job = await Job.findOne({user: user});
+    const job = await Job.findOne({user: user}).populate('user', ['name','email', 'role']);
         res.json({
         job
     });
