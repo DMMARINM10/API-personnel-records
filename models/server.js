@@ -31,7 +31,7 @@ class Server {
         //CORS
         this.app.use(cors ());
 
-        //Body reading
+        //Body parse
         this.app.use( express.json());
 
         //Public
@@ -43,6 +43,7 @@ class Server {
         this.app.use(this.authPath, require('../routes/auth'));
         this.app.use(this.jobsPath, require('../routes/jobs'));
     }
+    
 
     listen() {
         this.app.listen(this.port, () => {
